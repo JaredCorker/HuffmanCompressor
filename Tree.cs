@@ -44,5 +44,31 @@ namespace HuffmanCompressor
                 return '\0';
             }
         }
+
+        public char GetNode(string bits)
+        {
+            Node currentNode = Root;
+            foreach (char bit in bits)
+            {
+                if (bit == '0')
+                {
+                    if (currentNode.LeftChild == null)
+                    {
+                        return '\0';
+                    }
+                    currentNode = currentNode.LeftChild;
+                }
+                else
+                {
+                    if (currentNode.RightChild == null)
+                    {
+                        return '\0';
+                    }
+                    currentNode = currentNode.RightChild;
+                }
+            }
+
+            return currentNode.Character;
+        }
     }
 }

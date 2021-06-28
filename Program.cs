@@ -16,7 +16,8 @@ namespace HuffmanCompressor
             Tree t = new Tree();
             t.CreateTree(cl.CharList);
             Console.WriteLine("{0}", t.Root.Frequency);
-            t.TraverseTree(t.Root); 
+            t.TraverseTree(t.Root);
+            Console.WriteLine("Path to {0}", t.GetNode("11011"));
         }
     }
 }
