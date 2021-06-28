@@ -22,5 +22,27 @@ namespace HuffmanCompressor
 
             Root = nodes[0];
         }
+
+        public char TraverseTree(Node node)
+        {
+            if (node.LeftChild == null && node.RightChild == null)
+            {
+                Console.WriteLine("{0}", node.Character);
+                return node.Character; 
+            }
+            else
+            {
+                if (node.LeftChild != null)
+                {
+                    TraverseTree(node.LeftChild);
+                }
+                
+                if (node.RightChild != null)
+                {
+                    TraverseTree(node.RightChild);
+                }
+                return '\0';
+            }
+        }
     }
 }
