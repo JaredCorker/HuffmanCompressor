@@ -6,19 +6,39 @@ namespace HuffmanCompressor
 {
     public class CharacterList
     {
-        private List<(char, int)> charList { get; set; }
+        public List<Node> CharList { get; set; }
+
+        public CharacterList()
+        {
+            CharList = new List<Node>();
+        }
 
         public void CountCharacters(string text)
         {
-            foreach (char c in text)
+            if (text != null)
             {
-                bool containsChar = charList.Any(c => c.Item1 == c)
-            }
-        }
+                foreach (char c in text)
+                {
+                    bool containsChar = CharList.Any(x => x.Character == c);
+                    if (containsChar)
+                    {
+                        foreach (Node n in CharList)
+                        {
+                            if (n.Character == c)
+                            {
+                                n.Frequency += 1;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Node n = new Node(1, c, null, null);
+                        CharList.Add(n);
+                    }
+                }
 
-        public void OrderDict()
-        {
-            
+                CharList = CharList.OrderByDescending(x => x.Frequency).ToList();
+            }
         }
     }
 }

@@ -6,7 +6,13 @@ namespace HuffmanCompressor
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string text = "My name is jared";
+            CharacterList cl = new CharacterList();
+            cl.CountCharacters(text);
+            foreach (Node n in cl.CharList)
+            {
+                Console.WriteLine("{0}: {1}", n.Character, n.Frequency);
+            }
         }
     }
 }

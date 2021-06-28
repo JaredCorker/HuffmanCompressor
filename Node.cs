@@ -4,10 +4,10 @@ namespace HuffmanCompressor
 {
     public class Node
     {
-        private int Frequency { get; set; }
-        private char Character { get; set; }
-        private Node LeftChild { get; set; }
-        private Node RightChild { get; set; }
+        public int Frequency { get; set; }
+        public char Character { get; set; }
+        public Node LeftChild { get; set; }
+        public Node RightChild { get; set; }
 
         public Node(int frequency, char character, Node leftChild, Node rightChild)
         {
